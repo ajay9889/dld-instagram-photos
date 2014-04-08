@@ -10,11 +10,16 @@
 		<EnumValue value="medium" />
 		<EnumValue value="large" />
 	</UserPref> 
-	<UserPref name="instacount" display_name="Limit Photos" default_value="6" />
+   <UserPref name="instacount" display_name="Limit Photos" default_value="6" datatype="enum" >
+		<EnumValue value="1" />
+		<EnumValue value="3" />
+		<EnumValue value="6" />
+	</UserPref> 
 	<Content type="html">
 	<![CDATA[
    
 <style type='text/css'>
+iframe {border: 0 !important; overflow: hidden !important;}
 #dld_instagram_box {width:100%; margin:0; padding:0; list-style:none;}
 #dld_instagram_box li {width:33.33333333333333%; display:block; float:left; padding:1px 0;}
 #dld_instagram_box li a {width:98%; display:block;}
