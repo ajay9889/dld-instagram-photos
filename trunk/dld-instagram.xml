@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Module>
-	<ModulePrefs title="D.Instagram" author="Difluir" description="Instagram photos" author_email="difluir@gmail.com" height="200" /> 
-	<UserPref name="instauser" display_name="Usuário" required="true" />
+	<ModulePrefs title="Difluir Instagram" author="Difluir" description="Instagram photos" author_email="difluir@gmail.com" height="200" /> 
+	<UserPref name="instauser" display_name="User" required="true" />
 	<UserPref name="instatoken" display_name="Access Token" required="true" />	
 	<UserPref name="instasize" display_name="Photo Size" default_value="small" datatype="enum" >
 		<EnumValue value="small" />
@@ -14,13 +14,9 @@
 <ul id="dld_instagram_box"></ul>
 <script type="text/javascript">
 var prefs = new gadgets.Prefs();
-var dldUser = prefs.getString("instauser");
-var dldToken = prefs.getString("instatoken");
-var dldSize = prefs.getString("instasize");
-var dldCount = prefs.getString("instacount");
 function htmlEntities(str) { return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
 function instagram(widget,username,token,limit,setSize){ jQuery(document).ready(function($) { instagram.init(); }); var instagram = function() { return { init: function() { instagram.getUser(); }, getUser: function() { $.ajax({ type: "GET", dataType: "jsonp", cache: false, url: 'https://api.instagram.com/v1/users/search?q='+username+'&access_token='+token+'', success: function(data) { var getUserID = data.data[0].id;  instagram.loadImages(getUserID); } }); }, loadImages: function(userID) { $.ajax({ type: "GET", dataType: "jsonp", cache: false, url: 'https://api.instagram.com/v1/users/'+userID+'/media/recent/?access_token='+token+'', success: function(data) { for(var i = 0; i < limit; i+=1) { var linkurl = data.data[i].link; var caption = htmlEntities(data.data[i].caption.text); if(setSize == "small") { var size = data.data[i].images.thumbnail.url; } else if(setSize == "medium") { var size = data.data[i].images.low_resolution.url; } else { var size = data.data[i].images.standard_resolution.url; } if (limit == 1) { var img_class = ' singleimg'; } else { var img_class = ''; } $("#"+widget).append('<li class="photo-'+i+img_class+'"><a href="'+linkurl+'" target="_blank" title="'+caption+'"><img src="'+size+'" alt="" /></a></li>'); } } }); } }}(); }
-jQuery(document).ready(function($) { instagram('dld_instagram_box', dldUser, dldToken, dldCount, dldSize); });
+jQuery(document).ready(function($) { instagram('dld_instagram_box', prefs.getString("instauser"), prefs.getString("instatoken"), prefs.getString("instacount"), prefs.getString("instasize")); });
 </script>
 		]]>
 	</Content>
