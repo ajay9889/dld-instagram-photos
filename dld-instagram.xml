@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?> 
 <Module>
-	<ModulePrefs title="D.Instagram" author="Difluir" description="Instagram photos" author_email="difluir@gmail.com" height="200" /> 
+	<ModulePrefs title="Difluir Insta Photos" author="Difluir" description="Instagram photos" author_email="difluir@gmail.com" height="200" /> 
 	<UserPref name="instauser" display_name="User" required="true" />
 	<UserPref name="instatoken" display_name="Access Token" required="true" />	
 	<UserPref name="instasize" display_name="Photo Size" default_value="small" datatype="enum" >
