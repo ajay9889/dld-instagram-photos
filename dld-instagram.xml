@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?> 
 <Module>
-	<ModulePrefs title="Difluir Instagram" author="Difluir" description="Instagram photos" author_email="difluir@gmail.com"> 
+	<ModulePrefs title="Difluir Instagram" author="Difluir" description="Instagram photos" author_email="difluir@gmail.com" height="204"> 
     <Require feature="dynamic-height"/> 
   </ModulePrefs>
 	<UserPref name="instauser" display_name="User" required="true" />
