@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?> 
 <Module>
-	<ModulePrefs title="Difluir Instagram" author="Difluir" description="Instagram photos" author_email="difluir@gmail.com" height="204"> 
-    <Require feature="dynamic-height"/> 
+	<ModulePrefs title="Difluir Instagram" author="Difluir" description="Instagram photos" author_email="difluir@gmail.com" scrolling="false" height="204"> 
+    <Require feature="opensocial-0.8" />
+    <Require feature="dynamic-height"/>
   </ModulePrefs>
 	<UserPref name="instauser" display_name="User" required="true" />
 	<UserPref name="instatoken" display_name="Access Token" required="true" />	
@@ -30,10 +31,8 @@ var prefs = new gadgets.Prefs();
 
 if ( prefs.getString('instacount') ) {
   instagram( 'dld_instagram_box', prefs.getString('instauser'), prefs.getString('instatoken'), prefs.getString('instacount'), prefs.getString('instasize') );
-  setContent();
+  gadgets.window.adjustHeight();
 }
-
-function setContent() { gadgets.window.adjustHeight(); }
 </script>
 
 <ul id="dld_instagram_box"></ul>
