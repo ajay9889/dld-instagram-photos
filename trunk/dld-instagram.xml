@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?> 
 <Module>
-	<ModulePrefs title="Difluir Instagram" author="Difluir" description="Instagram photos" author_email="difluir@gmail.com" heigh="100"> 
+	<ModulePrefs title="Difluir Instagram" author="Difluir" description="Instagram photos" author_email="difluir@gmail.com" heigh="204"> 
     <Require feature="dynamic-height"/> 
   </ModulePrefs>
 	<UserPref name="instauser" display_name="User" required="true" />
@@ -28,10 +28,12 @@
 <script type="text/javascript">
 var prefs = new gadgets.Prefs();
 
-if ( prefs.getString('instacount') >= 1 ) {
+if ( prefs.getString('instacount') ) {
   instagram( 'dld_instagram_box', prefs.getString('instauser'), prefs.getString('instatoken'), prefs.getString('instacount'), prefs.getString('instasize') );
-  gadgets.window.adjustHeight();
+  setContent();
 }
+
+function setContent() { gadgets.window.adjustHeight(); }
 </script>
 
 <ul id="dld_instagram_box"></ul>
