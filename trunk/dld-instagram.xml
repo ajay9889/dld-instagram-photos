@@ -12,6 +12,14 @@
 	<Content type="html">
 	<![CDATA[
 <ul id="dld_instagram_box"></ul>
+<style type='text/css'>
+#dld_instagram_box {width:100%; margin:0; padding:0; list-style:none;}
+#dld_instagram_box li {width:33.33333333333333%; display:block; float:left; padding:1px 0;}
+#dld_instagram_box li a {width:98%; display:block;}
+#dld_instagram_box li.singleimg {width:100%; float:none; padding:0;}
+#dld_instagram_box li.singleimg a {width:100%;}
+#dld_instagram_box li img {width:100%; height:auto; display:block;}
+</style>
 <script src="http://dld-instagram-photos.googlecode.com/svn/trunk/instagram.js"></script>
 <script type="text/javascript">
 var prefs = new gadgets.Prefs();
